@@ -51,7 +51,18 @@ body{
 .grid-item {
   padding: 20px;
   text-align: center;
+  justify-content: center;
+  display: flex;
 }
+
+.Speedometer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px; 
+  height: 250px; 
+}
+
 
 .button {
   display: inline-block;
@@ -103,4 +114,12 @@ body{
 
 .incomplete {
   color: red; /* Color when test is in progress */
+}
+
+.Speedometer {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 200px; 
+  height: 200px; 
 }

@@ -1,34 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Speedometer from './Speedo'; // Import Speedometer component
 
 function App() {
-const [count, setCount] = useState(0);
-const [completed, setCompleted] = useState(false);
+  const [count, setCount] = useState(0);
+  const [completed, setCompleted] = useState(false);
+  const [isTesting, setIsTesting] = useState(false); // New state to control test
 
-useEffect(() => {
-  let interval;
-  if (count < 10 && !completed) {
-    interval = setInterval(() => {
-      setCount(prevCount => {
-        if (prevCount < 9) {
-          return prevCount + 1;
-        } else {
-          clearInterval(interval);
-          setCompleted(true);
-          return prevCount + 1;
-        }
-      });
-    }, 1000); // Increment every 1 second
-  }
-  return () => clearInterval(interval); // Cleanup interval on component unmount
-}, [count, completed]);
+  useEffect(() => {
+    let interval;
+    if (isTesting && count < 10 && !completed) {
+      interval = setInterval(() => {
+        setCount(prevCount => {
+          if (prevCount < 9) {
+            return prevCount + 1;
+          } else {
+            clearInterval(interval);
+            setCompleted(true);
+            return prevCount + 1;
+          }
+        });
+      }, 1000); // Increment every 1 second
+    }
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, [count, completed, isTesting]);
 
-const startTest = () => {
-  setCount(0); // Reset count
-  setCompleted(false); // Reset completion status
-};
+  const startTest = () => {
+    setCount(0); // Reset count
+    setCompleted(false); // Reset completion status
+    setIsTesting(true); // Start the test
+  };
 
-const statusClass = completed ? 'completed' : 'incomplete';
+  const statusClass = completed ? 'completed' : 'incomplete';
 
   return (
     <div className="App">
@@ -42,15 +45,12 @@ const statusClass = completed ? 'completed' : 'incomplete';
               <h2 className={`count ${statusClass}`}>Download Test</h2>
               <div className="Download_Result">
                 <div className="Test-Status">
-                <p className="Test_Counter">
-                  Count: {count}
-                  </p>
-                {
-                completed && <p>
-                  Test complete
-                  </p>
-                  }
-                 </div>
+                  <p className="Test_Counter">Count: {count}</p>
+                  {completed && <p>Test complete</p>}
+                </div>
+                <div className="Speedometer">
+                  <Speedometer value={count} /> {/* Add Speedometer component */}
+                </div>
               </div>
             </div>
           </div>
@@ -59,15 +59,12 @@ const statusClass = completed ? 'completed' : 'incomplete';
               <h2 className={`count ${statusClass}`}>Upload Test</h2>
               <div className="Upload_Result">
                 <div className="Test-Status">
-                <p className="Test_Counter">
-                  Count: {count}
-                  </p>
-                {
-                completed && <p>
-                  Test complete
-                  </p>
-                  }
-                 </div>
+                  <p className="Test_Counter">Count: {count}</p>
+                  {completed && <p>Test complete</p>}
+                </div>
+                <div className="Speedometer">
+                  <Speedometer value={count} /> {/* Add Speedometer component */}
+                </div>
               </div>
             </div>
           </div>
@@ -76,24 +73,19 @@ const statusClass = completed ? 'completed' : 'incomplete';
               <h2 className={`count ${statusClass}`}>Ping Test</h2>
               <div className="Upload_Result">
                 <div className="Test-Status">
-                <p className="Test_Counter">
-                  Count: {count}
-                  </p>
-                {
-                completed && <p>
-                  Test complete
-                  </p>
-                  }
-                 </div>
+                  <p className="Test_Counter">Count: {count}</p>
+                  {completed && <p>Test complete</p>}
+                </div>
+                <div className="Speedometer">
+                  <Speedometer value={count} /> {/* Add Speedometer component */}
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="button-container">
-          <button className="button" style={{verticalAlign: 'middle'}} onClick={startTest}>  
-            <span>
-              Test Network Connection Speed 
-            </span>
+          <button className="button" style={{ verticalAlign: 'middle' }} onClick={startTest}>
+            <span>Test Network Connection Speed</span>
           </button>
         </div>
       </main>
