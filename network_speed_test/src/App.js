@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import './App.css';
 import Speedometer from './Speedo'; // Import Speedometer component
@@ -8,12 +7,35 @@ function App() {
   const [isTesting, setIsTesting] = useState(false);
   const [counts, setCounts] = useState({ download: 0, upload: 0, ping: 0 });
   const [completedTests, setCompletedTests] = useState({ download: false, upload: false, ping: false });
-  const [testKey, setTestKey] = useState({ download: 0, upload: 0, ping: 0 }); // Add keys to force re-mount
+  const [testKey, setTestKey] = useState({ download: 0, upload: 0, ping: 0 }); // Keys to force re-mount
+  const [color, setColor] = useState('black'); // Default color for counts
 
+  // Function to start the tests
   const startTest = () => {
     setIsTesting(true); // Start the test
     setCompletedTests({ download: false, upload: false, ping: false }); // Reset all completion statuses
     setTestKey({ download: Math.random(), upload: Math.random(), ping: Math.random() }); // Change keys to force re-mount
+  };
+
+  // Function to restart the tests
+  const restartTests = () => {
+    setIsTesting(false); // Stop the tests
+    // Delay the start of the test to ensure the stopping has taken effect
+    setTimeout(() => {
+      setCounts({ download: 0, upload: 0, ping: 0 }); // Reset counts
+      setCompletedTests({ download: false, upload: false, ping: false }); // Reset completion statuses
+      setTestKey({ download: Math.random(), upload: Math.random(), ping: Math.random() }); // Change keys to force re-mount
+      setIsTesting(true); // Start the tests again
+    }, 100); // Delay to ensure any ongoing tests are stopped
+  };
+
+  // Function to handle reset
+  const handleReset = () => {
+    setCounts({ download: 0, upload: 0, ping: 0 }); // Reset counts
+    setCompletedTests({ download: false, upload: false, ping: false }); // Reset completion statuses
+    // Change color to a new random color
+    const newColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    setColor(newColor);
   };
 
   const handleTestComplete = (testType) => {
@@ -44,6 +66,7 @@ function App() {
                     isTesting={isTesting}
                     onComplete={() => handleTestComplete('download')}
                     onCountChange={(newCount, isComplete) => handleCountChange('download', newCount, isComplete)}
+                    color={color} // Pass color prop to Count component
                   />
                 </div>
                 <div className="Speedometer">
@@ -62,6 +85,7 @@ function App() {
                     isTesting={isTesting}
                     onComplete={() => handleTestComplete('upload')}
                     onCountChange={(newCount, isComplete) => handleCountChange('upload', newCount, isComplete)}
+                    color={color} // Pass color prop to Count component
                   />
                 </div>
                 <div className="Speedometer">
@@ -80,6 +104,7 @@ function App() {
                     isTesting={isTesting}
                     onComplete={() => handleTestComplete('ping')}
                     onCountChange={(newCount, isComplete) => handleCountChange('ping', newCount, isComplete)}
+                    color={color} // Pass color prop to Count component
                   />
                 </div>
                 <div className="Speedometer">
@@ -92,6 +117,9 @@ function App() {
         <div className="button-container">
           <button className="button" style={{ verticalAlign: 'middle' }} onClick={startTest}>
             <span>Test Network Connection Speed</span>
+          </button>
+          <button className="button" style={{ verticalAlign: 'middle' }} onClick={handleReset}>
+            <span>Reset Counters</span>
           </button>
         </div>
       </main>

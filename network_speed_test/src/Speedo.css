@@ -1,8 +1,8 @@
 /* Speedometer.css */
 .speedometer {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,18 +15,22 @@
 }
 
 .speedometer-background {
-  fill: #e0e0e0; /* Light gray background */
+  fill: url(#grad1);
+  /* fill: #D9D9D9; Light gray background */
 }
 
 .speedometer-arc {
-  fill: none;
-  stroke: #ddd;
-  stroke-width: 10;
+  stroke-width: 2;
+  stroke: #000;
 }
 
 .speedometer-indicator {
-  stroke: #f00; /* Color of the indicator */
-  stroke-width: 2;
+  stroke-width: 3;
+  stroke: #000;
+  stroke-linecap: round;
+  filter: drop-shadow(0px 0px 2px #000);
+  transition: x2 1s, y2 1s; /* Smooth transition for the indicator line */
+  transform-origin: 50% 100%;
 }
 
 .speedometer-label {
@@ -36,4 +40,9 @@
   transform: translate(-50%, -50%);
   font-size: 20px;
   text-align: center;
+  color: #D9D9D9;
+}
+
+.speedometer-background {
+  fill: #D9D9D9; /* Background color inside the arc */
 }
