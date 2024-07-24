@@ -46,6 +46,8 @@ body{
   width: 100vw;
   padding: 10px;
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-item {
@@ -62,7 +64,6 @@ body{
   width: 250px; 
   height: 250px; 
 }
-
 
 .button {
   display: inline-block;
@@ -114,12 +115,4 @@ body{
 
 .incomplete {
   color: red; /* Color when test is in progress */
-}
-
-.Speedometer {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  width: 200px; 
-  height: 200px; 
 }

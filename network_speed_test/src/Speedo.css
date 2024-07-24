@@ -1,32 +1,39 @@
 /* Speedometer.css */
 .speedometer {
-    position: relative;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .speedometer-svg {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .speedometer-arc {
-    fill: none;
-    stroke: #ddd;
-    stroke-width: 10;
-  }
-  
-  .speedometer-indicator {
-    stroke: #f00; /* Color of the indicator */
-    stroke-width: 2;
-  }
-  
-  .speedometer-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    text-align: center;
-  }
-  
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto; /* Center horizontally if within a block-level parent */
+}
+
+.speedometer-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.speedometer-background {
+  fill: #e0e0e0; /* Light gray background */
+}
+
+.speedometer-arc {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 10;
+}
+
+.speedometer-indicator {
+  stroke: #f00; /* Color of the indicator */
+  stroke-width: 2;
+}
+
+.speedometer-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  text-align: center;
+}
