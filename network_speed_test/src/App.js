@@ -114,6 +114,7 @@ function App() {
             </div>
           </div>
         </div>
+        {/* Buttons */}
         <div className="button-container">
           <button className="button" style={{ verticalAlign: 'middle' }} onClick={startTest}>
             <span>Test Network Connection Speed</span>

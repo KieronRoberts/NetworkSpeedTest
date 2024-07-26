@@ -1,8 +1,8 @@
-.App {
+.App { /* Centre aligning text within the application */
   text-align: center;
 }
 
-.App-logo {
+.App-logo { /* Application Logo height */
   height: 40vmin;
   pointer-events: none;
 }
@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.App-header { /* Header design */
   min-height: flex;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,6 @@
 }
 
 body {
-  /* background-color: #0b0c10; */
   background-image: linear-gradient(to bottom, #1f2833, #0b0c10);
   min-height: 100vh; /* Adjusted from 'flex' */
   display: flex;
@@ -105,14 +104,14 @@ body {
   right: 0;
 }
 
-.count {
-  color: black; /* Default color */
+.count { /* Default color */
+  color: black; 
 }
 
-.completed {
-  color: green; /* Color when test is complete */
+.completed { /* Color when test is complete */
+  color: green; 
 }
 
-.incomplete {
-  color: red; /* Color when test is in progress */
+.incomplete { /* Color when test is in progress */
+  color: red; 
 }
