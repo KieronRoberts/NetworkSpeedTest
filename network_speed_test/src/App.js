@@ -39,11 +39,17 @@ function App() {
 
   return (
     <div className="App">
+      {/* Header */}
       <header className="App-header">
-        <h1>Network Speed Test</h1>
+        <img src="Logo.png" alt="Logo" className="App-logo" />
+        <h1 className="App-title"> Network Speed Test</h1>
       </header>
+
+
+      {/* Main */}
       <main>
         <div className="grid-container">
+
           {/* Download Test */}
           <div className="grid-item">
             <div className="Download_Test">
@@ -170,16 +176,20 @@ function App() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
         {/* Buttons */}
         <div className="button-container">
+          
+          {/* Test Network Connection Speed Button */}
           <button className="button" style={{ verticalAlign: 'middle' }} onClick={startTest}>
             <span>Test Network Connection Speed</span>
           </button>
+          {/* Reset Test Button */}
           <button className="button" style={{ verticalAlign: 'middle' }} onClick={handleReset}>
-            <span>Reset Counters</span>
+            <span>Reset Test</span>
           </button>
         </div>
       </main>

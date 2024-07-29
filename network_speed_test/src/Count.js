@@ -36,12 +36,10 @@ function Count({ isTesting, onCountChange, onComplete, color }) {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [count, completed, isTesting, target, onComplete, onCountChange]);
 
-  // return (
-  //   <div style={{ color }}>
-  //     {isTesting && !completed && <p>Testing...</p>}
-  //     {completed && <p>Test Complete</p>}
-  //   </div>
-  // );
+  return (
+    <div style={{ color }}>
+    </div>
+  );
 }
 
 export default Count;

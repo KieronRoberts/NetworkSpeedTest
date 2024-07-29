@@ -1,10 +1,10 @@
-.App { /* Centre aligning text within the application */
+.App { 
+  /* Center-aligning text within the application */
   text-align: center;
-}
-
-.App-logo { /* Application Logo height */
-  height: 40vmin;
-  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Take full viewport height */
+  justify-content: space-between; /* Distribute space between header and buttons */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,14 +13,32 @@
   }
 }
 
-.App-header { /* Header design */
-  min-height: flex;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.App-header { 
+  /* Header design */
+  display: flex; /* Use Flexbox for layout */
+  align-items: center; /* Vertically center items */
+  justify-content: flex-start; /* Align items to the start */
+  min-height: 10px; /* Reduced minimum height */
   font-size: calc(10px + 2vmin);
   color: #C5c6c7;
+  width: 100%;
+  padding: 10px; /* Add some padding to the header if needed */
+}
+
+.App-logo { 
+  /* Application Logo height */
+  display: inline-block;
+  vertical-align: middle; /* Aligns the image vertically with the text */
+  height: 40px;
+  pointer-events: none;
+  margin-right: 10px; /* Add some space between the logo and the title */
+}
+
+.App-title {
+  /* Ensure title is centered and aligned properly */
+  margin: 0; /* Remove default margin from h1 */
+  text-align: left;
+  flex: 1; /* Allow title to take up the remaining space */
 }
 
 .App-link {
@@ -29,18 +47,28 @@
 
 body {
   background-image: linear-gradient(to bottom, #1f2833, #0b0c10);
-  min-height: 100vh; /* Adjusted from 'flex' */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #D9D9D9;
+  height: 100vh; /* Ensure body takes the full viewport height */
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center;
+  width: 100%;
 }
 
 .grid-container {
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
   grid-template-columns: 1fr 1fr 1fr; 
   gap: 10px;
   width: 100vw;
@@ -60,7 +88,7 @@ body {
 .vertical-tests {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 60px; /* Space between vertical items */
 }
 
 .Speedometer {
@@ -69,6 +97,14 @@ body {
   align-items: center;
   width: 250px; 
   height: 250px; 
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .button {
@@ -102,24 +138,12 @@ body {
   transition: 0.5s;
 }
 
-.button:hover span { /* Hoover is complete */
+.button:hover span { 
   padding-right: 25px;
 }
 
-.button:hover span:after { /* After the hoover is complete */
+.button:hover span:after { 
   opacity: 1;
   right: 0;
-}
-
-.count { /* Default color */
-  color: black; 
-}
-
-.completed { /* Color when test is complete */
-  color: green; 
-}
-
-.incomplete { /* Color when test is in progress */
-  color: red; 
 }
 
