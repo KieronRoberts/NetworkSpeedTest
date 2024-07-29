@@ -40,7 +40,8 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  grid-template-columns: 1fr 1fr 1fr; 
   gap: 10px;
   width: 100vw;
   padding: 10px;
@@ -54,6 +55,12 @@ body {
   text-align: center;
   justify-content: center;
   display: flex;
+}
+
+.vertical-tests {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .Speedometer {
@@ -115,3 +122,4 @@ body {
 .incomplete { /* Color when test is in progress */
   color: red; 
 }
+

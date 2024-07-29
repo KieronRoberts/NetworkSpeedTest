@@ -34,6 +34,9 @@ const Speedometer = ({ value }) => {
                 thickness: 0.75,
                 value: gaugeValue
               }
+            },
+            number: {
+              suffix: " Mbps" // Suffix text, e.g., units of measurement
             }
           }
         ]}
@@ -52,3 +55,4 @@ const Speedometer = ({ value }) => {
 };
 
 export default Speedometer;
+

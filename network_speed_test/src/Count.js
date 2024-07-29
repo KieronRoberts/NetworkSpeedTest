@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-function Count({ isTesting, onCountChange, onComplete }) {
+function Count({ isTesting, onCountChange, onComplete, color }) {
   const [count, setCount] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [target, setTarget] = useState(Math.floor(Math.random() * 100) + 1); // Initial target
@@ -36,12 +36,12 @@ function Count({ isTesting, onCountChange, onComplete }) {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [count, completed, isTesting, target, onComplete, onCountChange]);
 
-  return (
-    <div>
-      {isTesting && !completed && <p>Testing...</p>}
-      {completed && <p>Test Complete</p>}
-    </div>
-  );
+  // return (
+  //   <div style={{ color }}>
+  //     {isTesting && !completed && <p>Testing...</p>}
+  //     {completed && <p>Test Complete</p>}
+  //   </div>
+  // );
 }
 
 export default Count;
