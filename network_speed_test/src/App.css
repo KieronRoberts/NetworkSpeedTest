@@ -147,3 +147,28 @@ body {
   right: 0;
 }
 
+/* Styles for IP selection */
+.ip-selection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #D9D9D9;
+}
+
+.ip-selection h3 {
+  font-size: 24px;
+  padding-right: 10px;
+}
+
+.ip-selection select {
+  font-size: 18px;
+  background-color: #868686;
+  color: #D9D9D9;
+  cursor: pointer;
+}
+
+.ip-selection select:focus {
+  border-color: #61dafb;
+}
