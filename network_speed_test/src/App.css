@@ -3,8 +3,9 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Take full viewport height */
+  min-height: 100vh; /* Take full viewport height */
   justify-content: space-between; /* Distribute space between header and buttons */
+  padding: 1vw; /* Add padding for better scaling */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -19,19 +20,19 @@
   align-items: center; /* Vertically center items */
   justify-content: flex-start; /* Align items to the start */
   min-height: 10px; /* Reduced minimum height */
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 2vmin); /* Use vmin for better scaling */
   color: #C5c6c7;
   width: 100%;
-  padding: 10px; /* Add some padding to the header if needed */
+  padding: 2vw; /* Use viewport width for padding */
 }
 
 .App-logo { 
   /* Application Logo height */
   display: inline-block;
   vertical-align: middle; /* Aligns the image vertically with the text */
-  height: 40px;
+  height: 5vmin; /* Use viewport units for scaling */
   pointer-events: none;
-  margin-right: 10px; /* Add some space between the logo and the title */
+  margin-right: 1vw; /* Add some space between the logo and the title */
 }
 
 .App-title {
@@ -55,7 +56,7 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #D9D9D9;
-  height: 100vh; /* Ensure body takes the full viewport height */
+  min-height: 100vh; /* Ensure body takes the full viewport height */
 }
 
 .main-content {
@@ -69,41 +70,43 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  gap: 10px;
-  width: 100vw;
-  padding: 10px;
+  grid-template-columns: 1fr 1fr 1fr; /* Keep three columns */
+  gap: 1vw; /* Use viewport width for gap */
+  width: 100%;
+  padding: 1vw;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
 }
 
 .grid-item {
-  padding: 20px;
+  padding: 2vw; /* Use viewport width for padding */
   text-align: center;
   justify-content: center;
   display: flex;
+  flex-direction: column; /* Ensure vertical alignment of content */
 }
 
 .vertical-tests {
   display: flex;
   flex-direction: column;
-  gap: 60px; /* Space between vertical items */
+  gap: 3vh; /* Space between vertical items */
 }
 
 .Speedometer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px; 
-  height: 250px; 
+  width: 25vmin; /* Use viewport units for scaling */
+  height: 25vmin; /* Use viewport units for scaling */
+  margin: 1vh 0; /* Add vertical margin for spacing */
 }
 
 .button-container {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 2vw; /* Use viewport width for padding */
   box-sizing: border-box;
 }
 
@@ -114,12 +117,12 @@ body {
   border: none;
   color: #D9D9D9;
   text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 500px;
+  font-size: calc(14px + 1vmin); /* Use vmin for better scaling */
+  padding: 1.5vmin 2vmin; /* Use viewport units for padding */
+  width: calc(200px + 10vmin); /* Use a combination of fixed and viewport units */
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin: 0.5vw; /* Use viewport width for margin */
 }
 
 .button span {
@@ -152,18 +155,18 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 2vw; /* Use viewport width for padding */
   box-sizing: border-box;
   color: #D9D9D9;
 }
 
 .ip-selection h3 {
-  font-size: 24px;
-  padding-right: 10px;
+  font-size: calc(16px + 1vmin); /* Use vmin for better scaling */
+  padding-right: 1vw; /* Use viewport width for padding */
 }
 
 .ip-selection select {
-  font-size: 18px;
+  font-size: calc(12px + 1vmin); /* Use vmin for better scaling */
   background-color: #868686;
   color: #D9D9D9;
   cursor: pointer;

@@ -3,6 +3,10 @@ import './App.css';
 import Speedometer from './Speedo'; // Import Speedometer component
 import Count from './Count'; // Import Count component
 
+import SpeedTest from '@cloudflare/speedtest';
+
+new SpeedTest().onFinish = results => console.log(results.getSummary());
+
 function App() {
   const [isTesting, setIsTesting] = useState(false);
   const [counts, setCounts] = useState({ download: 0, upload: 0, ping: 0, jitter: 0, latency: 0 });
@@ -63,6 +67,7 @@ function App() {
       const latency = await testLatency(selectedIP);
       setCounts(prevCounts => ({ ...prevCounts, latency: latency }));
       handleTestComplete('latency');
+
     } catch (error) {
       console.error('Error testing network speeds:', error);
     } finally {
